@@ -29,62 +29,54 @@ begin();
 
 
 function begin() {
-    if (navigator.keyboard) {
-        var score = {
-            sides: [],
-            rolls: [],
+    var score = {
+        sides: [],
+        rolls: [],
 
-            update: function () {
-                var idScoreboard = document.getElementById("scoreboard");
-                var idSides = document.getElementById("sides");
-                var idRolls = document.getElementById("rolls");
-                var idTotal = document.getElementById("total");
+        update: function () {
+            var idScoreboard = document.getElementById("scoreboard");
+            var idSides = document.getElementById("sides");
+            var idRolls = document.getElementById("rolls");
+            var idTotal = document.getElementById("total");
 
-                idScoreboard.classList.remove("hidden");
-                idSides.innerHTML = this.sides.toString();
-                idRolls.innerHTML = this.rolls.toString();
-                idTotal.innerHTML = this.total();
-            },
+            idScoreboard.classList.remove("hidden");
+            idSides.innerHTML = this.sides.toString();
+            idRolls.innerHTML = this.rolls.toString();
+            idTotal.innerHTML = this.total();
+        },
 
-            add: function (accumulator, a) {
-                return accumulator + a;
-            },
+        add: function (accumulator, a) {
+            return accumulator + a;
+        },
 
-            total: function () {
-                var total = score.rolls.reduce(this.add, 0);
-                return total;
-            }
-        };
-        document.addEventListener('keypress', function (event) {
-            if (event.key === 'r') {
-                play = new Play();
-                side = play.getSide;
-                roll = play.roll();                
-                var snd = new Audio("./roll.mp3");
-                snd.play();
-                score.sides.push(side);
-                score.rolls.push(roll);
-                score.update();
-            }
-        });
-    }
+        total: function () {
+            var total = score.rolls.reduce(this.add, 0);
+            return total;
+        }
+    };
+    
+    document.addEventListener('touchend', function (event) {
+        play = new Play();
+        side = play.getSide;
+        roll = play.roll();
+        var snd = new Audio("./roll.mp3");
+        snd.play();
+        score.sides.push(side);
+        score.rolls.push(roll);
+        score.update();
+    });
 
-    else if (( window.innerWidth >= 800 ) && ( window.innerHeight >= 600 )){
-        console.log("diocane");
-        document.addEventListener('touchend', function (event) {
-            console.log("dioporco");
+    document.addEventListener('keypress', function (event) {
+        if (event.key === 'r') {
             play = new Play();
             side = play.getSide;
-            roll = play.roll();                
+            roll = play.roll();
             var snd = new Audio("./roll.mp3");
             snd.play();
             score.sides.push(side);
             score.rolls.push(roll);
             score.update();
-        });
-    }
+        }
+    });
 
-    else {
-        console.error("Sorry. Seems like you don't have a input device installed. Get a real input device and then reload the page.");
-    }
 }
