@@ -69,8 +69,10 @@ function begin() {
         });
     }
 
-    else if (typeof window.orientation !== 'undefined'){
-        document.addEventListener('touchstart', function (event) {
+    else if (( window.innerWidth >= 800 ) && ( window.innerHeight >= 600 )){
+        console.log("diocane");
+        document.addEventListener('touchend', function (event) {
+            console.log("dioporco");
             play = new Play();
             side = play.getSide;
             roll = play.roll();                
