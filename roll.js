@@ -68,7 +68,21 @@ function begin() {
             }
         });
     }
+
+    else if (typeof window.orientation !== 'undefined'){
+        document.addEventListener('touchstart', function (event) {
+            play = new Play();
+            side = play.getSide;
+            roll = play.roll();                
+            var snd = new Audio("./roll.mp3");
+            snd.play();
+            score.sides.push(side);
+            score.rolls.push(roll);
+            score.update();
+        });
+    }
+
     else {
-        console.error("Sorry. Seems like you don't have a keyboard installed. Get a real keyboard device and then reload the page.");
+        console.error("Sorry. Seems like you don't have a input device installed. Get a real input device and then reload the page.");
     }
 }
