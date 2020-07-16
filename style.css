@@ -1,0 +1,48 @@
+.content {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.content p {
+    margin: 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.logo {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 2.5cm;
+    color: red;
+    
+    text-shadow: 2px 2px 4px black;
+}
+
+#scoreboard {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 100px 100px 100px;
+    border: 3px solid red;
+    padding: 5%;
+    border-radius: 1cm;
+    box-sizing: border-box;
+    width: auto;
+    height: auto;
+    text-justify: auto;
+    background-color: lightgray ;
+    /* align-content: flex-end; */
+}
+
+#sides, #rolls, #total {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.3cm;
+    color: red;
+}
+
+#total {
+    text-shadow: 4px 4px 4px gold;
+}
+
+.hidden {
+    visibility: hidden;
+}
