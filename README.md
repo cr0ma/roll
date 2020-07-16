@@ -14,9 +14,9 @@
 
 **TODO**:
 
-    1. Pulire un pò il codice.
-    2. Migliorare il supporto per dispositivi touch.
-    3. Reimplementare in Angular (!?)
+    1. Pulire un pò il codice. [x]
+    2. Migliorare il supporto per dispositivi touch. [x]
+    3. Reimplementare in Angular (!?) []
 
 
 **Bug conosciuti**
