@@ -21,4 +21,4 @@
 
 **Bug conosciuti**
 
-    1. Se si inserisce una faccia inesistente nell'attuale set, esce un numero arbitrariamente scorretto.
+    Se si inserisce una faccia inesistente nell'attuale set, esce un numero arbitrariamente scorretto.
