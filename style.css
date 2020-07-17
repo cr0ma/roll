@@ -23,6 +23,7 @@
     grid-template-columns: auto;
     grid-template-rows: 100px 100px 100px;
     border: 3px solid red;
+    color: red;
     padding: 5%;
     border-radius: 1cm;
     box-sizing: border-box;
@@ -35,7 +36,7 @@
 #sides, #rolls, #total {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 1.3cm;
-    color: red;
+    /* color: red; */
     text-shadow: 4px 4px 4px black;
 }
 

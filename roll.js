@@ -15,17 +15,21 @@ class Play {
     }
 
     roll() {
+
         if (this.DnDsides.includes(Number(this.side))) {
             var randomNumber = Math.floor(Math.random() * this.side) + 1;
-            if(randomNumber == 20){
+            if (randomNumber == 20) {
                 alert("Critic!");
                 var snd = new Audio("./critic.mp3");
                 snd.play();
             }
+            var snd = new Audio("./roll.mp3");
+            snd.play();
             return randomNumber;
         } else {
             return false;
         }
+
     }
 
     get getSide() {
@@ -33,47 +37,75 @@ class Play {
     }
 }
 
+class Stats {
+
+    constructor(score){
+        this.source = score;
+    }
+
+    critical() {
+        var c = [];
+        this.source.forEach(e => {
+            if (e === 20) {
+                c.push(e);
+            }
+        });
+        return c.length();
+    }
+
+};
+
 main();
 
 
 function main() {
+
+
     var score = {
         sides: [],
         rolls: [],
 
         update: function () {
+            this.updateHTML();
+        },
+
+        updateHTML: function () {
             var idScoreboard = document.getElementById("scoreboard");
             var idSides = document.getElementById("sides");
             var idRolls = document.getElementById("rolls");
             var idTotal = document.getElementById("total");
 
             idScoreboard.classList.remove("hidden");
-            idSides.innerHTML = "🎲"+this.sides.join(", ");
-            idRolls.innerHTML = this.rolls.join("+")+"=";
+            idSides.innerHTML = "🎲" + this.sides.join(", ");
+            idRolls.innerHTML = this.rolls.join("+") + "=";
             idTotal.innerHTML = this.total();
         },
 
-        add: function (accumulator, a) {
-            return accumulator + a;
+        add: function (a, b) {
+            return a + b;
         },
 
         total: function () {
             var total = score.rolls.reduce(this.add, 0);
             return total;
+        },
+
+        push: function (side, roll) {
+            if (typeof (roll) === "number") {
+                this.sides.push(side);
+                this.rolls.push(roll);
+            }
         }
     };
 
+
     function game() {
         play = new Play();
-        side = play.getSide;
+        dice = play.getSide;
         roll = play.roll();
-        if (typeof (roll) === "number") {
-            var snd = new Audio("./roll.mp3");
-            snd.play();
-            score.sides.push(side);
-            score.rolls.push(roll);
-            score.update();
-        }
+        score.push(dice, roll);
+        score.update();
+        stats = new Stats(score.rolls);
     }
 
     document.addEventListener('touchend', function (event) {
