@@ -10,15 +10,18 @@ class Play {
             alert("You have to specify a valid DnD dice!");
             console.error("You have to specify a valid DnD dice!");
             console.error("It can either of these: 4, 6, 8, 10, 12, 20");
-            return NaN;
         }
 
     }
 
     roll() {
-        var randomNumber = Math.floor(Math.random() * this.side) + 1;
-        return randomNumber;
-    };
+        if (this.DnDsides.includes(Number(this.side))) {
+            var randomNumber = Math.floor(Math.random() * this.side) + 1;
+            return randomNumber;
+        } else {
+            return false;
+        }
+    }
 
     get getSide() {
         return this.side;
@@ -55,17 +58,19 @@ function main() {
         }
     };
 
-    function game(){
+    function game() {
         play = new Play();
         side = play.getSide;
         roll = play.roll();
-        var snd = new Audio("./roll.mp3");
-        snd.play();
-        score.sides.push(side);
-        score.rolls.push(roll);
-        score.update();
+        if (typeof (roll) === "number") {
+            var snd = new Audio("./roll.mp3");
+            snd.play();
+            score.sides.push(side);
+            score.rolls.push(roll);
+            score.update();
+        }
     }
-    
+
     document.addEventListener('touchend', function (event) {
         game();
     });
