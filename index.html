@@ -12,9 +12,10 @@
     <div class="content">
         <div class="logo">Roll!</div>
         <p>Press <b>R</b> or <b>tap</b> to <span title="To throw a Random dice with the DnD dice rules."><i>roll</i></span> a <span title="A valid DnD dice is either of this set: 4, 6, 8, 10, 12, 20"><b><i>DnD dice</i></b></span>.</p>
+        <p>Press <b>S</b> to <i>generate statistics</i>.</p>
         <div id="scoreboard" class="hidden">
             <span title="Throwed dices"><div id="sides" ></div></span>
-            <span title="Rolled dices"><div id="rolls"></div></span>
+            <span title="Rolled dices"><div id="rolls" onclick="stats.popup()"></div></span>
             <span title="Total score"><div id="total"></div></span>
             <script src="roll.js"></script>
         </div>

@@ -39,19 +39,49 @@ class Play {
 
 class Stats {
 
-    constructor(score){
-        this.source = score;
+    constructor(score, dices) {
+        this.dices = dices;
+        this.score = score;
     }
 
     critical() {
         var c = [];
-        this.source.forEach(e => {
+        this.score.forEach(e => {
             if (e === 20) {
                 c.push(e);
             }
         });
-        return c.length();
-    }
+        return c.length;
+    };
+
+    throwedDices() {
+        return this.score.length;
+    };
+
+    maxScore() {
+        var max = this.score[0];
+        this.score.forEach(e => {
+            if (max < e) {
+                max = e;
+            }
+        });
+        return max;
+    };
+
+    minScore() {
+        var max = this.score[0];
+        this.score.forEach(e => {
+            if (max > e) {
+                max = e;
+            }
+        });
+        return max;
+    };
+
+
+    popup() {
+        alert("Total critical dices: " + this.critical() + "\n" + "Total throwed dices: " + this.throwedDices() + "\n" + "Higher dice: " + this.maxScore() + "\n" + "Lower dice: " + this.minScore());
+    };
 
 };
 
@@ -99,22 +129,29 @@ function main() {
     };
 
 
-    function game() {
+    function gameloop() {
+
         play = new Play();
         dice = play.getSide;
         roll = play.roll();
         score.push(dice, roll);
         score.update();
-        stats = new Stats(score.rolls);
+
+        document.addEventListener('keypress', function (event) {
+            if (event.key === 's') {
+                stats = new Stats(score.rolls, score.dices);
+            }
+        });
+
     }
 
     document.addEventListener('touchend', function (event) {
-        game();
+        gameloop();
     });
 
     document.addEventListener('keypress', function (event) {
         if (event.key === 'r') {
-            game();
+            gameloop();
         }
     });
 
