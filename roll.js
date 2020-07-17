@@ -55,7 +55,7 @@ function main() {
         }
     };
 
-    function play(){
+    function game(){
         play = new Play();
         side = play.getSide;
         roll = play.roll();
@@ -67,12 +67,12 @@ function main() {
     }
     
     document.addEventListener('touchend', function (event) {
-        play();
+        game();
     });
 
     document.addEventListener('keypress', function (event) {
         if (event.key === 'r') {
-            play();
+            game();
         }
     });
 
