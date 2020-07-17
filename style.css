@@ -30,17 +30,17 @@
     height: auto;
     text-justify: auto;
     background-color: lightgray ;
-    /* align-content: flex-end; */
 }
 
 #sides, #rolls, #total {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 1.3cm;
     color: red;
+    text-shadow: 4px 4px 4px black;
 }
 
 #total {
-    text-shadow: 4px 4px 4px gold;
+    text-shadow: 3px 3px 3px gold;
 }
 
 .hidden {
