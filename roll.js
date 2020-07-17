@@ -7,9 +7,7 @@ class Play {
         if (this.DnDsides.includes(Number(i))) {
             this.side = i;
         } else {
-            alert("You have to specify a valid DnD dice!");
-            console.error("You have to specify a valid DnD dice!");
-            console.error("It can either of these: 4, 6, 8, 10, 12, 20");
+            alert("You have to specify a valid DnD dice!\nIt can either of these: 4, 6, 8, 10, 12, 20");
         }
 
     }
