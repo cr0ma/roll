@@ -40,7 +40,8 @@
 }
 
 #total {
-    text-shadow: 3px 3px 3px gold;
+    color: gold;
+    text-shadow: 3px 3px 3px black;
 }
 
 .hidden {
