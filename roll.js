@@ -25,10 +25,10 @@ class Play {
     }
 }
 
-begin();
+main();
 
 
-function begin() {
+function main() {
     var score = {
         sides: [],
         rolls: [],
@@ -54,8 +54,8 @@ function begin() {
             return total;
         }
     };
-    
-    document.addEventListener('touchend', function (event) {
+
+    function play(){
         play = new Play();
         side = play.getSide;
         roll = play.roll();
@@ -64,18 +64,15 @@ function begin() {
         score.sides.push(side);
         score.rolls.push(roll);
         score.update();
+    }
+    
+    document.addEventListener('touchend', function (event) {
+        play();
     });
 
     document.addEventListener('keypress', function (event) {
         if (event.key === 'r') {
-            play = new Play();
-            side = play.getSide;
-            roll = play.roll();
-            var snd = new Audio("./roll.mp3");
-            snd.play();
-            score.sides.push(side);
-            score.rolls.push(roll);
-            score.update();
+            play();
         }
     });
 
