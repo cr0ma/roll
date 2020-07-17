@@ -5,7 +5,18 @@
     flex-direction: column;
 }
 
-.content p {
+.content a {
+    color: red;
+    text-decoration: none;
+}
+
+#scoreboard a {
+    color: red;
+    text-decoration: underline;
+}
+
+.content p, #scoreboard p {
+    color: black;
     margin: 0px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -17,6 +28,7 @@
     
     text-shadow: 2px 2px 4px black;
 }
+
 
 #scoreboard {
     display: grid;
@@ -31,12 +43,12 @@
     height: auto;
     text-justify: auto;
     background-color: lightgray ;
+    box-shadow: 4px 4px 30px black;
 }
 
 #sides, #rolls, #total {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: 1.3cm;
-    /* color: red; */
     text-shadow: 4px 4px 4px black;
 }
 
