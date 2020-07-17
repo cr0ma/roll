@@ -44,7 +44,7 @@ function main() {
 
             idScoreboard.classList.remove("hidden");
             idSides.innerHTML = this.sides.toString();
-            idRolls.innerHTML = this.rolls.toString();
+            idRolls.innerHTML = this.rolls.join("+")+"=";
             idTotal.innerHTML = this.total();
         },
 
