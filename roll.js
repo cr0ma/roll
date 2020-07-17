@@ -43,7 +43,7 @@ function main() {
             var idTotal = document.getElementById("total");
 
             idScoreboard.classList.remove("hidden");
-            idSides.innerHTML = this.sides.toString();
+            idSides.innerHTML = "🎲"+this.sides.join(", ");
             idRolls.innerHTML = this.rolls.join("+")+"=";
             idTotal.innerHTML = this.total();
         },
