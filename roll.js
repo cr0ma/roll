@@ -17,6 +17,11 @@ class Play {
     roll() {
         if (this.DnDsides.includes(Number(this.side))) {
             var randomNumber = Math.floor(Math.random() * this.side) + 1;
+            if(randomNumber == 20){
+                alert("Critic!");
+                var snd = new Audio("./critic.mp3");
+                snd.play();
+            }
             return randomNumber;
         } else {
             return false;
