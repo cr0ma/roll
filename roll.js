@@ -107,7 +107,7 @@ function main() {
 
             idScoreboard.classList.remove("hidden");
             idSides.innerHTML = "🎲" + this.sides.join(", ");
-            idRolls.innerHTML = this.rolls.join("+") + "=";
+            idRolls.innerHTML = "👋" + this.rolls.join("+") + "=";
             idTotal.innerHTML = this.total();
         },
 
